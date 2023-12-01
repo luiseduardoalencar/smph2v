@@ -1,0 +1,44 @@
+
+<div class="splitcontent">
+<div class="splitcontentleft">
+  <div class="wiki">
+    <%= textilizable Setting.welcome_text %>
+  </div>
+  <%= call_hook(:view_welcome_index_left) %>
+</div>
+
+<div class="splitcontentright">
+  <% if @news.any? %>
+  <div class="news box">
+  <h3><%=l(:label_news_latest)%></h3>
+    <%= render :partial => 'news/news', :collection => @news %>
+    <%= link_to l(:label_news_view_all), :controller => 'news' %>
+  </div>
+  <% end %>
+  <%= call_hook(:view_welcome_index_right) %>
+
+  <div class="custom-links">
+      <h3>Acompanhe também:</h3>
+      <ul>
+        <li><%= link_to "BI do Observatório", "https://app.powerbi.com/view?r=eyJrIjoiZmViODFmMWItOTE3My00ZjYwLThjNWItMjQ2NmVlOTZjNGFiIiwidCI6IjQ4NWEyYzI2LWYyNjctNGM2OC1hMzBiLTgyZmQxZGUwZGIxMyJ9" %></li>
+        <li><%= link_to "SEI", "https://sip.pi.gov.br/sip/login.php?sigla_orgao_sistema=GOV-PI&sigla_sistema=SEI&infra_url=L3NlaS8=" %></li>
+        <li><%= link_to "Relatório de acompanhamento de projetos", "https://investepiaui-my.sharepoint.com/:w:/p/cleane_santos/Ef9CD8bxrj5Btsl5zqDrd1gBUTJ_tnEVONYJxGPkwuv5YQ?e=pUF6Yk" %></li>
+        <li><%= link_to "Site Investe H2V", "https://investepiaui.com/hub-hidrogenio-verde/" %></li>
+        <li><%= link_to "Bibioteca H2V", "URL_do_Link_2" %></li>
+        <li><%= link_to "Últimas notícias H2V", "https://investepiaui.com/?s=Hidrog%C3%AAnio+Verde" %></li>
+        <li><%= link_to "Planos Estaduais", "https://investepiaui-my.sharepoint.com/:b:/p/cleane_santos/EUB6Iv5AHglKrI3XB-GUu8oBJUaEwRLU3M7LJgGPsHGaRA?e=CVTbL0" %></li>
+        <li><%= link_to "Projetos de pesquisa H2V", "URL_do_Link_3" %></li>
+        <li><%= link_to "Fluxos de Processos", "URL_do_Link_2" %></li>
+        
+      </ul>
+    </div>
+
+</div>
+</div>
+
+<% content_for :header_tags do %>
+<%= auto_discovery_link_tag(:atom, {:controller => 'news', :action => 'index', :key => User.current.atom_key, :format => 'atom'},
+                                   :title => "#{Setting.app_title}: #{l(:label_news_latest)}") %>
+<%= auto_discovery_link_tag(:atom, {:controller => 'activities', :action => 'index', :key => User.current.atom_key, :format => 'atom'},
+                                   :title => "#{Setting.app_title}: #{l(:label_activity)}") %>
+<% end %>

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  redmine:
+    image: luiseduardoalencar/smph2v:2.0  
+    restart: always
+    volumes:
+      - "C:/Users/Luis/smph2v/versoes/smph2v20/redmine:/usr/src/redmine"
+    ports:
+      - "8080:3000"
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: admin
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: redmine
