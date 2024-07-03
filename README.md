@@ -1,16 +1,12 @@
-Aqui está um README completo para o projeto **Sistema de Monitoramento de Projetos de Hidrogênio Verde no Estado do Piauí**:
-
----
-
 # Sistema de Monitoramento de Projetos de Hidrogênio Verde no Estado do Piauí
 
 Olá Pessoal!!
 
 🚀 Apresento a vocês o Sistema de Monitoramento de Projetos de Hidrogênio Verde no Estado do Piauí! 
 
-💡 Estou empolgado em compartilhar o resultado de 4 meses de trabalho dedicado na implementação de uma ferramenta para impulsionar a produção sustentável de hidrogênio em nosso amado Estado do Piauí. 
+💡Estou empolgado em compartilhar o resultado de 4 meses de trabalho dedicado na implementação de uma ferramenta para impulsionar a produção sustentável de hidrogênio em nosso amado Estado do Piauí. 
 
-🔍 A página Inicial aberta ao público tem como objetivo mostrar os avanços do nosso estado nessa área, e no mundo. Internamente temos informações mais detalhadas sobre cada projeto e seus progressos.
+🔍A página Inicial aberta ao público tem como objetivo mostrar os avanços dos nosso estado nessa área, e no mundo. Internamente temos informações mais detalhadas sobre cada projeto e seus progressos.
 
 ## 🌿 O que é o Sistema de Monitoramento?
 Este software foi criado para rastrear e analisar o progresso de iniciativas focadas na produção sustentável de hidrogênio. Seus objetivos primordiais incluem a supervisão eficiente do desenvolvimento de infraestrutura, gestão otimizada de recursos e a promoção da transparência no setor.
@@ -23,47 +19,43 @@ Ao oferecer uma visão abrangente do cenário dos projetos de hidrogênio verde,
 - Análises detalhadas para uma gestão eficiente de recursos.
 - Relatórios transparentes para promover a responsabilidade e confiança.
 
-## Tecnologias Envolvidas
-- **Ruby on Rails**: Usado para construir a aplicação web.
-- **Redmine**: Framework utilizado para gestão de projetos.
-- **Docker-compose**: Utilizado para containerização e fácil execução do projeto.
+## 🛠️ Tecnologias Utilizadas
+- **Ruby on Rails:** Framework para desenvolvimento da aplicação.
+- **MySQL/PostgreSQL:** Bancos de dados.
+- **Passenger/Unicorn:** Servidores de aplicação.
+- **Apache/Nginx:** Servidores web.
+- **Docker:** Para contêineres de desenvolvimento e produção.
+- **Redis:** Para cache.
+- **Sidekiq:** Gerenciamento de filas.
 
-## Arquitetura MVC
-O sistema foi desenvolvido seguindo a arquitetura MVC (Model-View-Controller):
-- **Model**: Responsável pela lógica de negócios e acesso aos dados.
-- **View**: Responsável pela apresentação dos dados.
-- **Controller**: Responsável por receber as requisições do usuário, invocar a lógica de negócios apropriada e determinar a view a ser renderizada.
+## 🚀 Executando o Projeto
 
-## Executando o Projeto
-Para executar o projeto, siga os passos abaixo:
-
-### Pré-requisitos
-Certifique-se de ter o Docker e Docker-compose instalados na sua máquina.
-
-### Passos
-1. Clone o repositório:
-   ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_DIRETORIO>
+1. **Clone o repositório:**
+   ```sh
+   git clone https://github.com/luiseduardoalencar/smph2v.git
+   cd smph2v
    ```
 
-2. Suba os containers Docker:
-   ```bash
+2. **Configurar o Docker:**
+   Certifique-se de ter o Docker e Docker Compose instalados em sua máquina. Configure o ambiente usando o Docker Compose:
+   ```sh
    docker-compose up
    ```
 
-3. Acesse a aplicação no seu navegador em:
-   ```
-   http://localhost:3000
+3. **Configurar o Banco de Dados:**
+   Execute as migrações para configurar o banco de dados:
+   ```sh
+   docker-compose run web rake db:create db:migrate
    ```
 
-### Parar o Projeto
-Para parar a execução do projeto, utilize o comando:
-```bash
-docker-compose down
-```
+4. **Iniciar o Servidor:**
+   Inicie o servidor web:
+   ```sh
+   docker-compose up
+   ```
+
+5. **Acessar a Aplicação:**
+   A aplicação estará disponível em `http://localhost:3000`.
 
 ---
-
-Espero que este README ajude a todos a entenderem o propósito e a funcionalidade do Sistema de Monitoramento de Projetos de Hidrogênio Verde no Estado do Piauí. Vamos juntos contribuir para um futuro mais sustentável!
 
